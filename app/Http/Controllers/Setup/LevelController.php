@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 
 class LevelController extends Controller
 {
+    //XXX list all levels with section for a school
     public function index($school_id){
         return res::s(Level::where('school_id',$school_id)->with('sections')->get());
     }
+
+    //XXX add a level
     public function add(Request $request){
         
             $level=new Level();
@@ -23,6 +26,8 @@ class LevelController extends Controller
         
     }
 
+    //XXX update a level
+
     public function update(Request $request){
         $level=Level::find($request->id);
         if($level==null){
@@ -32,6 +37,8 @@ class LevelController extends Controller
         $level->save();
         return res::s('Level Updated Successfully');
     }
+
+    //XXX delete a level
     public function delete(Request $request){
         $level=Level::find($request->id);
         if($level==null){
@@ -41,6 +48,7 @@ class LevelController extends Controller
         return res::s('Level Deleted Successfully');
     }
 
+    //XXX add a section
     public function AddSection(Request $request){
         $level=Level::find($request->level_id);
         if($level==null){
@@ -54,6 +62,7 @@ class LevelController extends Controller
         return res::s($section);
     }
 
+    //XXX update a section
     public function updateSection(Request $request){
         $section=Section::find($request->id);
         if($section==null){
@@ -66,6 +75,7 @@ class LevelController extends Controller
         return res::s("section updated Successfully");
     }
 
+    //XXX delete a section
     public function deleteSection(Request $request){
         $section=Section::find($request->id);
         if($section==null){

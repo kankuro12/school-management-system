@@ -1,6 +1,15 @@
 <?php
 namespace App;
 class RoleList{
+    //XXX roles
+    public static $roles=[
+        'Super Admin',
+        'Admin',
+        'Teacher',
+        'Accountant',
+        'Staff',
+        'Student'
+    ];
     //XXX Permissions 
     public static $permissions=[
         'setup'=>[

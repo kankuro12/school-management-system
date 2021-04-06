@@ -49,37 +49,10 @@ class SchoolController extends Controller
         $school->save();
         return res::s('School Updates Sucessfully');
     }
-
-    //XXX update School Email
-    public function updateEmail(Request $request){
-        $user=User::where('id',$request->user_id)->first();
-        if($user==null){
-            return res::f(['User Not Found']);
-        }
-
-        if(User::where('email',$request->email)->where('id','<>',$request->user_id)->count()>0){
-            return res::f(['Email Already Used']);
-        }
-
-        $user->email=$request->email;
-        $user->save();
-        return res::s('Email Updated Sucessfully');
-    }
-
-    //XXX Update School Password
-    public function updatePassword(Request $request){
-        $user=User::where('id',$request->user_id)->first();
-        if($user==null){
-            return res::f(['User Not Found']);
-        }
-        $user->password=bcrypt( $request->password);
-        $user->save();
-        return res::s('Password Updated Sucessfully');
-    }
-
     
     public function test(Request $request){
-        return res::s($request->file('data'));
+        // return res::s([$request->all(),$request->y->getClientOriginalName()]);
+        dd($request);
     }
 
 }

@@ -22,8 +22,9 @@ class CreateStudentsTable extends Migration
             $table->string('gender',10);
             $table->text('image');
             $table->date('dob')->nullable();
-            $table->int('nepali_dob')->nullable();
+            $table->boolean('archived')->default(false);
             $table->string('nationality',30)->default('Nepali');
+            $table->integer('nepali_dob')->nullable();
             $table->text('fathername')->nullable();
             $table->text('fatheraddress')->nullable();
             $table->text('fatherphone')->nullable();

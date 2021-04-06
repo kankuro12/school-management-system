@@ -22,6 +22,7 @@ class CreateStaffTable extends Migration
             $table->string('gender',10);
             $table->text('image');
             $table->integer('salary');
+            $table->boolean('archived')->default(false);
             $table->string('nationality',30)->default('Nepali');
             $table->string('acc_no')->default('Nepali');
             $table->text('fathername')->nullable();
