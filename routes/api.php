@@ -25,6 +25,7 @@ Route::middleware('auth:api')->group(function(){
     //XXX Manage list of schools
     Route::match(['get', 'post'], 'schools', "Setup\SchoolController@index");
     Route::post( 'schools/updateInfo', "Setup\SchoolController@updateInfo");
+    // Route::get('schools/get',"Setup\SchoolController@info")
 
     //XXX manage levels and sections
     Route::match(['get', 'post'], 'levels/list/{school_id}', "Setup\LevelController@index");

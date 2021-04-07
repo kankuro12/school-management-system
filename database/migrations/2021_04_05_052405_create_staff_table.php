@@ -24,7 +24,7 @@ class CreateStaffTable extends Migration
             $table->integer('salary');
             $table->boolean('archived')->default(false);
             $table->string('nationality',30)->default('Nepali');
-            $table->string('acc_no')->default('Nepali');
+            $table->string('acc_no')->nullable();
             $table->text('fathername')->nullable();
             $table->text('mothername')->nullable();
             $table->text('spousename')->nullable();
@@ -33,7 +33,7 @@ class CreateStaffTable extends Migration
             $table->text('experience')->nullable();
             $table->date('start_date')->nullable();
             $table->date('dob')->nullable();
-            $table->date('maritial_status')->nullable();
+            $table->string('maritial_status')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('school_id');

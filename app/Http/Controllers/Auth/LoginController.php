@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 use App\ApiData as res;
 
 use App\Http\Controllers\Controller;
+use App\Models\School;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -34,6 +35,10 @@ class LoginController extends Controller
     }
 
     public function user(){
-        return res::s(Auth::user());
+        $user=Auth::user();
+        if($user->role==1){
+            $user->school=School::where('user_id',$user->id)->first();
+        }
+        return res::s($user);
     }
 }

@@ -55,4 +55,7 @@ class SchoolController extends Controller
         dd($request);
     }
 
+    public function info(){
+        
+    }
 }
